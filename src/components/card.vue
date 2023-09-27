@@ -9,22 +9,30 @@ export default{
 		title : String,
 		content : String,
 		type: Object,
-		techs: Array
+		techs: Array,
+		start_date : Date,
+		end_date :Date
 	}
 }
 </script>
 
 <template>
 	<div class="card">
+		<h3>
+			im a card btw
+		</h3>
 		<ul>
-			<li>
+			<li v-if="title">
 				title :{{ title }}
 			</li>
-			<li>
+			<li v-if="content">
 				content:{{ content }}
 			</li>
 			<li v-if="type">
 				type: {{ type.name }}
+			</li>
+			<li v-if="start_date && end_date">
+				{{ start_date }} until {{ end_date }}
 			</li>
 			<li v-if="techs">
 				<ul>

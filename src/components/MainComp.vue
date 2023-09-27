@@ -30,6 +30,9 @@ export default{
 						this.singleProject = res.data.results
 						console.log(this.singleProject);
 					})
+		},
+		closeCard(){
+			this.viewCard = false;
 		}
 	},
 	created(){
@@ -49,9 +52,9 @@ export default{
 					<tr>
 						<th scope="col">id</th>
 						<th scope="col">title</th>
-						<th scope="col">date</th>
-						<th scope="col">type</th>
-						<th scope="col">tech</th>
+						<!-- <th scope="col">date</th> -->
+						<!-- <th scope="col">type</th>
+						<th scope="col">tech</th> -->
 						<th scope="col">ACTION</th>
 					</tr>
     			</thead>
@@ -63,7 +66,7 @@ export default{
 						<td>
 							{{ project.title }}
 						</td>
-						<td>
+						<!-- <td>
 							{{ project.start_date }}||{{ project.end_date }}
 						</td>
 						<td>
@@ -73,19 +76,25 @@ export default{
 							<span v-for="(tech,j) in project.give_tech" :key="j">
 								{{tech.name}}
 							</span>
-						</td>
+						</td> -->
 						<td>
 							<button @click="getCard(project.id)">view project</button>
 						</td>
 					</tr>
 				</tbody>
 			</table>
+			<button v-if="viewCard" @click="closeCard()">
+				close card
+			</button>
 			<div v-if="viewCard">
 				<card 
 					:title="singleProject.title"
 					:content="singleProject.content"
 					:type="singleProject.type"
-					:techs="singleProject.give_tech"/>
+					:techs="singleProject.give_tech"
+					:start_date="singleProject.start_date"
+					:end_date="singleProject.end_date"
+					/>
 			</div>
 	</div>
 </template>
