@@ -10,10 +10,10 @@ export default{
 		getProjects(){
 			axios.get('http://127.0.0.1:8000/api/projects')
 					.then((res)=>{
-						console.log(res.data.results.data);
-						this.projects = res.data.results.data;
+						console.log(res.data.results);
+						this.projects = res.data.results;
 						console.log(this.projects);
-						console.log(this.projects[10].give_tech[0].name);
+						// console.log(this.projects[10].give_tech[0].name);
 					})
 		}
 	},
@@ -44,10 +44,10 @@ export default{
 							{{ project.title }}
 						</td>
 						<td>
-							{{ project.start_date }}-{{ project.end_date }}
+							{{ project.start_date }}||{{ project.end_date }}
 						</td>
 						<td>
-							{{ project.type.name }}
+							<span v-if="project.type.name">{{ project.type.name }}</span>
 						</td>
 						<td>
 							<span v-for="(tech,j) in project.give_tech" :key="j">
