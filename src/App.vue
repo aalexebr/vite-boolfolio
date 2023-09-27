@@ -1,18 +1,23 @@
 <script>
+import axios from "axios";
 import componentTemplate from './components/componentTemplate.vue'
+import HeaderComp from './components/HeaderComp.vue'
+import MainComp from './components/MainComp.vue'
 
 export default{
     data(){
       return{}
     },
     components: {
-      componentTemplate
+      HeaderComp,
+      MainComp
     },
 }
 </script>
 
 <template>
-  <componentTemplate/>
+  <HeaderComp/>
+  <MainComp/>
 </template>
 
 <style lang="scss">
