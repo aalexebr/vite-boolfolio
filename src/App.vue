@@ -1,6 +1,6 @@
 <script>
 import axios from "axios";
-import componentTemplate from './components/componentTemplate.vue'
+// import componentTemplate from './components/componentTemplate.vue'
 import HeaderComp from './components/HeaderComp.vue'
 import MainComp from './components/MainComp.vue'
 
