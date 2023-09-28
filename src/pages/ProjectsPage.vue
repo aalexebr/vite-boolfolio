@@ -27,6 +27,11 @@ export default{
 						this.singleProject = res.data.results
 						console.log(this.singleProject);
 					})
+                    .catch(err=>{
+                        if(err.response.status == 404){
+                            this.$router.push({name:'notFound'})
+                        }
+                    })
 		},
 		closeCard(){
 			this.viewCard = false;

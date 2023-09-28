@@ -18,6 +18,11 @@
                             console.log(this.singleProject,'from var');
                             this.loadingProjecs = false;
                         })
+                        .catch(err=>{
+                        if(err.response.status == 404){
+                            this.$router.push({name:'notFound'})
+                        }
+                    })
                 }
             },
         },
