@@ -55,6 +55,7 @@ export default{
 						<!-- <th scope="col">type</th>
 						<th scope="col">tech</th> -->
 						<th scope="col">ACTION</th>
+                        <th scope="col">view single</th>
 					</tr>
     			</thead>
 				<tbody>
@@ -79,6 +80,11 @@ export default{
 						<td>
 							<button @click="getCard(project.id)">view project</button>
 						</td>
+                        <td>
+                            <router-link :to="{name:'singleProject',params:{ id: project.id}}">
+                                view
+                            </router-link>
+                        </td>
 					</tr>
 				</tbody>
 			</table>
